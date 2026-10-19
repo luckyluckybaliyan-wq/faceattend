@@ -7,10 +7,6 @@
 # 🎯 FaceAttend — Smart Face Recognition Attendance System
 
 <p align="center">
-  <img src="assets/faceattend-banner.png" alt="FaceAttend Banner" width="100%">
-</p>
-
-<p align="center">
   <b>Automate Attendance • Recognize Faces • Track Progress</b>
 </p>
 
