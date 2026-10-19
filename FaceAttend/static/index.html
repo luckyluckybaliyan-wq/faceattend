@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FaceAttend – Smart Face Recognition Attendance</title>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head><body>
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+<nav>
+  <div class="logo">😀 Face<span>Attend</span></div>
+  <div class="links">
+    <a data-tab="home" class="active">Home</a><a data-tab="dashboard">Dashboard</a>
+    <a data-tab="scan">Scan</a><a data-tab="register">Register</a><a data-tab="records">Records</a>
+  </div>
+</nav>
+
+<main>
+<section id="home" class="tab active">
+  <div class="hero">
+    <div>
+      <span class="pill">AI Powered • Contactless • Real-time</span>
+      <h1>Attendance that <em>recognizes you</em> in a blink.</h1>
+      <p>Register a face once, walk in front of the camera, and your attendance is marked automatically. No cards, no registers, no proxies.</p>
+      <div class="cta"><button class="btn" onclick="go('scan')">Start Scanning</button>
+      <button class="btn ghost" onclick="go('register')">Register Student</button></div>
+    </div>
+    <svg viewBox="0 0 400 400" class="art">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#06b6d4"/></linearGradient></defs>
+      <circle cx="200" cy="200" r="170" fill="url(#g)" opacity=".18"/>
+      <circle cx="200" cy="190" r="95" fill="#1e1b4b" stroke="url(#g)" stroke-width="4"/>
+      <circle cx="170" cy="175" r="10" fill="#fff"/><circle cx="230" cy="175" r="10" fill="#fff"/>
+      <path d="M165 220 Q200 255 235 220" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <g stroke="#22d3ee" stroke-width="5" fill="none" stroke-linecap="round">
+        <path d="M95 130V95H130"/><path d="M305 130V95H270"/><path d="M95 255V290H130"/><path d="M305 255V290H270"/></g>
+      <rect x="80" y="180" width="240" height="4" fill="#22d3ee" opacity=".7"><animate attributeName="y" values="100;285;100" dur="3s" repeatCount="indefinite"/></rect>
+    </svg>
+  </div>
+  <div class="grid3">
+    <div class="card"><div class="ico">🎯</div><h3>Accurate</h3><p>128-point face descriptors matched with Euclidean distance.</p></div>
+    <div class="card"><div class="ico">⚡</div><h3>Real-time</h3><p>Detects and marks multiple faces live from your webcam.</p></div>
+    <div class="card"><div class="ico">📊</div><h3>Reports</h3><p>Dashboard, daily records and one-click CSV export.</p></div>
+  </div>
+</section>
+
+<section id="dashboard" class="tab">
+  <h2>Dashboard</h2>
+  <div class="grid3">
+    <div class="card stat"><span id="sTotal">0</span><p>Total Students</p></div>
+    <div class="card stat ok"><span id="sPresent">0</span><p>Present Today</p></div>
+    <div class="card stat bad"><span id="sAbsent">0</span><p>Absent Today</p></div>
+  </div>
+  <div class="card"><h3>Last 7 Days</h3><div id="chart" class="chart"></div></div>
+</section>
+
+<section id="scan" class="tab">
+  <h2>Live Face Scan</h2>
+  <div class="split">
+    <div class="card cam"><video id="video" autoplay muted playsinline></video><canvas id="overlay"></canvas>
+      <div id="status" class="status">Loading AI models…</div></div>
+    <div class="card"><h3>Marked Just Now</h3><ul id="live" class="live"></ul></div>
+  </div>
+</section>
+
+<section id="register" class="tab">
+  <h2>Register Student</h2>
+  <div class="split">
+    <div class="card cam"><video id="video2" autoplay muted playsinline></video></div>
+    <div class="card form">
+      <input id="rName" placeholder="Full name"><input id="rRoll" placeholder="Roll number">
+      <input id="rDept" placeholder="Department (e.g. CSIT)">
+      <button class="btn" id="capBtn">Capture Face & Save</button>
+      <p id="rMsg" class="msg"></p>
+      <h3>Registered</h3><ul id="stuList" class="live"></ul>
+    </div>
+  </div>
+</section>
+
+<section id="records" class="tab">
+  <h2>Attendance Records</h2>
+  <div class="bar"><input type="date" id="fDay"><button class="btn" id="fBtn">Filter</button>
+  <a class="btn ghost" href="/api/export">⬇ Export CSV</a></div>
+  <div class="card"><table><thead><tr><th>Name</th><th>Roll</th><th>Dept</th><th>Date</th><th>Time</th></tr></thead><tbody id="rows"></tbody></table></div>
+</section>
+</main>
+<footer>© 2026 FaceAttend • Built with Flask, SQLite & face-api.js</footer>
+<script src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.js"></script>
+<script src="js/app.js"></script>
+</body></html>
