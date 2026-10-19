@@ -1,3 +1,9 @@
+<p align="center">
+  <img src="assets/faceattend-banner.png"
+       alt="FaceAttend Banner"
+       width="100%">
+</p>
+
 # 🎯 FaceAttend — Smart Face Recognition Attendance System
 
 <p align="center">
